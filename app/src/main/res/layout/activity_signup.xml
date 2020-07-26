@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    tools:context=".SignUp">
 
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/signUpNameField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="100dp"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextPhone"
+        android:id="@+id/phoneNumberField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="20dp"
@@ -33,10 +33,10 @@
         android:inputType="phone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpNameField" />
 
     <EditText
-        android:id="@+id/editTextTextPassword"
+        android:id="@+id/signUpPasswordField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="20dp"
@@ -47,10 +47,10 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPhone" />
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberField" />
 
     <EditText
-        android:id="@+id/editTextTextPassword3"
+        android:id="@+id/signUpConfirmPasswordField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="20dp"
@@ -61,7 +61,7 @@
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpPasswordField" />
 
     <Button
         android:id="@+id/button"
@@ -73,7 +73,7 @@
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword3" />
+        app:layout_constraintTop_toBottomOf="@+id/signUpConfirmPasswordField" />
 
     <TextView
         android:id="@+id/textView"

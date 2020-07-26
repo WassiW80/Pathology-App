@@ -18,7 +18,7 @@ tools:context=".MainActivity">
         app:srcCompat="@drawable/logo" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/loginUsernameField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="100dp"
@@ -34,7 +34,7 @@ tools:context=".MainActivity">
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <EditText
-        android:id="@+id/editTextTextPassword2"
+        android:id="@+id/loginPasswordField"
         android:layout_width="200"
         android:layout_height="50"
         android:layout_marginTop="15dp"
@@ -46,7 +46,7 @@ tools:context=".MainActivity">
         android:drawableLeft="@drawable/ic_action_pass"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName3" />
+        app:layout_constraintTop_toBottomOf="@+id/loginUsernameField" />
 
     <Button
         android:id="@+id/button"
@@ -58,7 +58,7 @@ tools:context=".MainActivity">
         android:background="@drawable/btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword2" />
+        app:layout_constraintTop_toBottomOf="@+id/loginPasswordField" />
 
     <TextView
         android:id="@+id/textView"
