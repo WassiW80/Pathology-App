@@ -9,8 +9,8 @@
 
     <EditText
         android:id="@+id/signUpNameField"
-        android:layout_width="200"
-        android:layout_height="50"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="100dp"
         android:ems="10"
         android:focusable="true"
@@ -23,8 +23,8 @@
 
     <EditText
         android:id="@+id/phoneNumberField"
-        android:layout_width="200"
-        android:layout_height="50"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:focusable="true"
@@ -37,8 +37,8 @@
 
     <EditText
         android:id="@+id/signUpPasswordField"
-        android:layout_width="200"
-        android:layout_height="50"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:focusable="true"
@@ -51,8 +51,8 @@
 
     <EditText
         android:id="@+id/signUpConfirmPasswordField"
-        android:layout_width="200"
-        android:layout_height="50"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:ems="10"
         android:focusable="true"
@@ -65,8 +65,8 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="200"
-        android:layout_height="50"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/btn"
         android:text="Login"
