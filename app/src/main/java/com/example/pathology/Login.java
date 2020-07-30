@@ -2,6 +2,7 @@ package com.example.pathology;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,5 +22,10 @@ public class Login extends AppCompatActivity {
     private void initializeComponent(){
         username=findViewById(R.id.loginUsernameField);
         password=findViewById(R.id.loginPasswordField);
+    }
+
+    public void openLoginPage(View view){
+        Intent intent=new Intent(Login.this,SignUp.class);
+        startActivity(intent);
     }
 }
