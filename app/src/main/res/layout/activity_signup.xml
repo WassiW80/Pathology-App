@@ -80,7 +80,7 @@
         android:layout_marginTop="20dp"
         android:background="@drawable/btn"
         android:onClick="validation"
-        android:text="Login"
+        android:text="Register"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
