@@ -1,17 +1,18 @@
 package com.example.pathology;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 public class Login extends AppCompatActivity {
 
-    private EditText username,password;
+    private EditText username, password;
     private Button login;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,13 +20,14 @@ public class Login extends AppCompatActivity {
         initializeComponent();
     }
 
-    private void initializeComponent(){
-        username=findViewById(R.id.loginUsernameField);
-        password=findViewById(R.id.loginPasswordField);
+    private void initializeComponent() {
+        username = findViewById(R.id.loginUsernameField);
+        password = findViewById(R.id.loginPasswordField);
+        login = findViewById(R.id.loginButton);
     }
 
-    public void openLoginPage(View view){
-        Intent intent=new Intent(Login.this,SignUp.class);
+    public void openLoginPage(View view) {
+        Intent intent = new Intent(Login.this, SignUp.class);
         startActivity(intent);
     }
 }

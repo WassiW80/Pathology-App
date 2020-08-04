@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Pathology</string>
+    <string name="drawer_open">Drawer Open</string>
+    <string name="drawer_close">Drawer Close</string>
+    <string-array name="branch_array">
+        <item>Branch</item>
+        <item>Kurla</item>
+        <item>Chembur</item>
+        <item>Govandi</item>
+    </string-array>
 </resources>
