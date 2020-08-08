@@ -1,5 +1,6 @@
 package com.example.pathology;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_add:
+                startActivity(new Intent(MainActivity.this, SignUp.class));
                 break;
 
             case R.id.nav_view:
@@ -68,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_contact:
+                startActivity(new Intent(MainActivity.this,AboutUs.class));
                 break;
         }
     }
