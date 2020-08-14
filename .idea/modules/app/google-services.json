@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "617944192813",
+    "firebase_url": "https://pathology-81633.firebaseio.com",
+    "project_id": "pathology-81633",
+    "storage_bucket": "pathology-81633.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617944192813:android:bb027a258579bea93825a4",
+        "android_client_info": {
+          "package_name": "com.example.pathology"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617944192813-6c1siihnemrcmhr09dg1m0k7igi4jkgr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pathology",
+            "certificate_hash": "02b2d5ffc58a75136377a0bb0f377eb5624a99d8"
+          }
+        },
+        {
+          "client_id": "617944192813-qpa5onv96rvvmvceatt11anfgonstd5q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAiMZPSRFj8-_2WaU2mR4KywOa9ezbUXLQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617944192813-qpa5onv96rvvmvceatt11anfgonstd5q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
