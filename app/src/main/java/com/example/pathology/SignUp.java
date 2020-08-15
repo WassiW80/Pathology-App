@@ -1,6 +1,5 @@
 package com.example.pathology;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -11,10 +10,15 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 public class SignUp extends AppCompatActivity {
 
     private EditText etUsername, etPassword, etOrganization, etPhoneNumber;
     private Button signUp;
+    private DatabaseReference reference;
+    private Member member;
     Spinner spinner;
 
 
@@ -32,7 +36,8 @@ public class SignUp extends AppCompatActivity {
         etPassword = findViewById(R.id.signUpPasswordField);
         etOrganization = findViewById(R.id.signUpOrganizationField);
         signUp = findViewById(R.id.signUpButton);
-
+        member = new Member();
+        reference = FirebaseDatabase.getInstance().getReference().child("Members");
     }
 
     public void addListenerOnSpinnerItemSelection() {
@@ -42,11 +47,6 @@ public class SignUp extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
         spinner.setOnItemSelectedListener(new SpinnerActivity());
-    }
-
-    public void openSignUpPage(View view) {
-        Intent intent = new Intent(SignUp.this, Login.class);
-        startActivity(intent);
     }
 
     private boolean validateField() {
@@ -86,6 +86,12 @@ public class SignUp extends AppCompatActivity {
 
     public void validation(View view) {
         if (validateField()) {
+            member.setName(etUsername.getText().toString().trim());
+            member.setPassword(etPassword.getText().toString().trim());
+            member.setPhoneNumber(etPhoneNumber.getText().toString().trim());
+            member.setHospitalOrClinic(etOrganization.getText().toString().trim());
+            member.setBranch(spinner.getSelectedItem().toString().trim());
+            reference.child(etUsername.getText().toString().trim()).setValue(member);
             Toast.makeText(SignUp.this, "Registered Successfully...", Toast.LENGTH_LONG).show();
         }
     }
