@@ -7,6 +7,14 @@ public class Member {
     private String phoneNumber;
     private String branch;
 
+    public Member(String name, String password, String hospitalOrClinic, String phoneNumber, String branch) {
+        this.name = name;
+        this.password = password;
+        this.hospitalOrClinic = hospitalOrClinic;
+        this.phoneNumber = phoneNumber;
+        this.branch = branch;
+    }
+
     public Member() {
     }
 

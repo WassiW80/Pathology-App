@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -64,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_view:
+                startActivity(new Intent(MainActivity.this,DoctorList.class));
                 break;
 
             case R.id.nav_settings:
@@ -71,6 +71,10 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.nav_contact:
                 startActivity(new Intent(MainActivity.this,AboutUs.class));
+                break;
+            case R.id.nav_logout:
+                startActivity(new Intent(MainActivity.this,Login.class));
+                finish();
                 break;
         }
     }

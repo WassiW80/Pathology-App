@@ -12,12 +12,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUp extends AppCompatActivity {
 
     private EditText etUsername, etPassword, etOrganization, etPhoneNumber;
     private Button signUp;
     private DatabaseReference reference;
+    private FirebaseDatabase database;
     private Member member;
     Spinner spinner;
 
@@ -36,8 +38,9 @@ public class SignUp extends AppCompatActivity {
         etPassword = findViewById(R.id.signUpPasswordField);
         etOrganization = findViewById(R.id.signUpOrganizationField);
         signUp = findViewById(R.id.signUpButton);
-        member = new Member();
-        reference = FirebaseDatabase.getInstance().getReference().child("Members");
+
+        database=FirebaseDatabase.getInstance();
+        reference=database.getReference("User");
     }
 
     public void addListenerOnSpinnerItemSelection() {
@@ -55,7 +58,7 @@ public class SignUp extends AppCompatActivity {
         String organization = etOrganization.getText().toString();
         String mobile = etPhoneNumber.getText().toString();
 
-        if (username.equals("")) {
+        if (username.isEmpty()) {
             Toast.makeText(this, "Please enter username", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -65,7 +68,7 @@ public class SignUp extends AppCompatActivity {
             return false;
         }
         //validate password
-        if (password.equals("")) {
+        if (password.isEmpty()) {
             Toast.makeText(this, "Please enter password", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -73,7 +76,7 @@ public class SignUp extends AppCompatActivity {
             Toast.makeText(this, "Password length minimum 5", Toast.LENGTH_SHORT).show();
             return false;
         }
-        if (organization.equals("")) {
+        if (organization.isEmpty()) {
             Toast.makeText(this, "Please enter organization", Toast.LENGTH_SHORT).show();
             return false;
         }
@@ -86,13 +89,23 @@ public class SignUp extends AppCompatActivity {
 
     public void validation(View view) {
         if (validateField()) {
-            member.setName(etUsername.getText().toString().trim());
-            member.setPassword(etPassword.getText().toString().trim());
-            member.setPhoneNumber(etPhoneNumber.getText().toString().trim());
-            member.setHospitalOrClinic(etOrganization.getText().toString().trim());
-            member.setBranch(spinner.getSelectedItem().toString().trim());
-            reference.child(etUsername.getText().toString().trim()).setValue(member);
+            String name = etUsername.getText().toString().trim();
+            String phoneNumber = etPhoneNumber.getText().toString().trim();
+            String password = etPassword.getText().toString().trim();
+            String organization = etOrganization.getText().toString().trim();
+            String branch = spinner.getSelectedItem().toString().trim();
+            member = new Member(name,password,organization,phoneNumber,branch);
+            reference.child(phoneNumber).setValue(member);
             Toast.makeText(SignUp.this, "Registered Successfully...", Toast.LENGTH_LONG).show();
+            clearField();
         }
+    }
+
+    private void clearField() {
+        etUsername.getText().clear();
+        etPhoneNumber.getText().clear();
+        etOrganization.getText().clear();
+        etPassword.getText().clear();
+        spinner.setSelection(0);
     }
 }
