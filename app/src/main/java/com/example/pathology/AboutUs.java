@@ -1,11 +1,11 @@
 package com.example.pathology;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.Calendar;
 
@@ -19,7 +19,7 @@ public class AboutUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Element adsElement=new Element();
+        Element adsElement = new Element();
         adsElement.setTitle("Advertise Here:");
 
         View aboutUsPage = new AboutPage(this)
@@ -49,7 +49,7 @@ public class AboutUs extends AppCompatActivity {
         copyrightElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AboutUs.this,copyrightString,Toast.LENGTH_LONG).show();
+                Toast.makeText(AboutUs.this, copyrightString, Toast.LENGTH_LONG).show();
             }
         });
         return copyrightElement;

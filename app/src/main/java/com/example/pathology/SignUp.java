@@ -12,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 public class SignUp extends AppCompatActivity {
 
@@ -39,8 +38,8 @@ public class SignUp extends AppCompatActivity {
         etOrganization = findViewById(R.id.signUpOrganizationField);
         signUp = findViewById(R.id.signUpButton);
 
-        database=FirebaseDatabase.getInstance();
-        reference=database.getReference("User");
+        database = FirebaseDatabase.getInstance();
+        reference = database.getReference("User");
     }
 
     public void addListenerOnSpinnerItemSelection() {
@@ -94,7 +93,7 @@ public class SignUp extends AppCompatActivity {
             String password = etPassword.getText().toString().trim();
             String organization = etOrganization.getText().toString().trim();
             String branch = spinner.getSelectedItem().toString().trim();
-            member = new Member(name,password,organization,phoneNumber,branch);
+            member = new Member(name, password, organization, phoneNumber, branch);
             reference.child(phoneNumber).setValue(member);
             Toast.makeText(SignUp.this, "Registered Successfully...", Toast.LENGTH_LONG).show();
             clearField();
