@@ -15,6 +15,10 @@
     <string name="login">Login</string>
     <string name="name">Name</string>
     <string name="organization">Hospital or Clinic</string>
+    <string name="pdf_file_name">Pdf file Name</string>
+    <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="reset">Reset</string>
 
     <string-array name="branch_array">
         <item>Branch</item>

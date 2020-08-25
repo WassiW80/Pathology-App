@@ -36,10 +36,10 @@ public class Login extends AppCompatActivity {
     }
 
     private boolean validateField() {
-        String username = etPhoneNumber.getText().toString();
+        String phoneNumber = etPhoneNumber.getText().toString();
         String password = etPassword.getText().toString();
-        if (username.isEmpty()) {
-            Toast.makeText(this, "Please enter username", Toast.LENGTH_SHORT).show();
+        if (phoneNumber.isEmpty()) {
+            Toast.makeText(this, "Please enter phone number", Toast.LENGTH_SHORT).show();
             return false;
         }
         //validate password
@@ -64,7 +64,7 @@ public class Login extends AppCompatActivity {
         final String phoneNumber = etPhoneNumber.getText().toString().trim();
         final String password = etPassword.getText().toString().trim();
         if (phoneNumber.equals("1234") && password.equals("admin")) {
-            startActivity(new Intent(Login.this, MainActivity.class));
+            startActivity(new Intent(Login.this, DoctorMainActivity.class));
             finish();
         } else {
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
@@ -76,7 +76,9 @@ public class Login extends AppCompatActivity {
                     if (snapshot.exists()) {
                         String passwordFromDB = snapshot.child(phoneNumber).child("password").getValue(String.class);
                         if (passwordFromDB.equals(password)) {
-                            startActivity(new Intent(Login.this, DoctorMainActivity.class));
+                            UserData.phoneNumber = snapshot.child(phoneNumber).child("phoneNumber").getValue(String.class);
+                            UserData.password = snapshot.child(phoneNumber).child("password").getValue(String.class);
+                            startActivity(new Intent(Login.this, MainActivity.class));
                             finish();
                         } else {
                             Toast.makeText(Login.this, "Wrong Password...", Toast.LENGTH_LONG).show();

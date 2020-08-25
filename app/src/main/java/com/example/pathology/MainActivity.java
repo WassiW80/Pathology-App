@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import androidx.appcompat.widget.Toolbar;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import com.google.android.material.navigation.NavigationView;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
+    private String phoneNumber, name, password, branch, hospitalOrClinic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_upload:
+//                startActivity(new Intent(MainActivity.this, AddReport.class));
                 break;
 
             case R.id.nav_add:
@@ -63,17 +66,18 @@ public class MainActivity extends AppCompatActivity {
                 break;
 
             case R.id.nav_view:
-                startActivity(new Intent(MainActivity.this,DoctorList.class));
+                startActivity(new Intent(MainActivity.this, DoctorList.class));
                 break;
 
             case R.id.nav_settings:
+                startActivity(new Intent(MainActivity.this, UserProfile.class));
                 break;
 
             case R.id.nav_contact:
-                startActivity(new Intent(MainActivity.this,AboutUs.class));
+                startActivity(new Intent(MainActivity.this, AboutUs.class));
                 break;
             case R.id.nav_logout:
-                startActivity(new Intent(MainActivity.this,Login.class));
+                startActivity(new Intent(MainActivity.this, Login.class));
                 finish();
                 break;
         }
