@@ -21,6 +21,8 @@ public class Login extends AppCompatActivity {
 
     private EditText etPhoneNumber, etPassword;
     private Button login;
+    private String adminPhoneNumber;
+    private String adminPassword;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,8 @@ public class Login extends AppCompatActivity {
         etPhoneNumber = findViewById(R.id.loginUsernameField);
         etPassword = findViewById(R.id.loginPasswordField);
         login = findViewById(R.id.loginButton);
+        adminPhoneNumber = "8108052992";
+        adminPassword = "admin123";
     }
 
     private boolean validateField() {
@@ -63,13 +67,14 @@ public class Login extends AppCompatActivity {
     private void isUser() {
         final String phoneNumber = etPhoneNumber.getText().toString().trim();
         final String password = etPassword.getText().toString().trim();
-        if (phoneNumber.equals("1234") && password.equals("admin")) {
+        if (phoneNumber.equals(adminPhoneNumber) && password.equals(adminPassword)) {
+            UserData.phoneNumber = adminPhoneNumber;
+            UserData.password = adminPassword;
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();
         } else {
             DatabaseReference reference = FirebaseDatabase.getInstance().getReference("User");
             Query checkUser = reference.orderByChild("phoneNumber").equalTo(phoneNumber);
-
             checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {

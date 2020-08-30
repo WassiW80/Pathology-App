@@ -3,7 +3,6 @@ package com.example.pathology;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -18,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
-    private String phoneNumber, name, password, branch, hospitalOrClinic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationView = findViewById(R.id.navigation_view);
-        View navView = navigationView.inflateHeaderView(R.layout.navigation_header);
+        navigationView.inflateHeaderView(R.layout.navigation_header);
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -65,8 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SignUp.class));
                 break;
 
-            case R.id.nav_view:
-                startActivity(new Intent(MainActivity.this, DoctorList.class));
+            case R.id.nav_greeting:
+                startActivity(new Intent(MainActivity.this, SendGreetingActivity.class));
                 break;
 
             case R.id.nav_settings:
@@ -80,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, Login.class));
                 finish();
                 break;
+            default:
+                throw new IllegalStateException("Unexpected value: " + menuItem.getItemId());
         }
     }
 }

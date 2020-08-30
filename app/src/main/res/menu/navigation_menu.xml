@@ -11,8 +11,8 @@
         android:id="@+id/nav_add"
         android:title="@string/add_user" />
     <item
-        android:id="@+id/nav_view"
-        android:title="@string/view_doctor" />
+        android:id="@+id/nav_greeting"
+        android:title="@string/send_greeting" />
     <item
         android:id="@+id/nav_settings"
         android:title="@string/settings" />
