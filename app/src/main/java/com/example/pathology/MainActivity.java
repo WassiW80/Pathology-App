@@ -67,10 +67,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, SendGreetingActivity.class));
                 break;
 
-            case R.id.nav_settings:
-                startActivity(new Intent(MainActivity.this, UserProfile.class));
-                break;
-
             case R.id.nav_contact:
                 startActivity(new Intent(MainActivity.this, AboutUs.class));
                 break;

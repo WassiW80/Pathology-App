@@ -70,6 +70,7 @@ public class Login extends AppCompatActivity {
         if (phoneNumber.equals(adminPhoneNumber) && password.equals(adminPassword)) {
             UserData.phoneNumber = adminPhoneNumber;
             UserData.password = adminPassword;
+            Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();
         } else {
@@ -83,6 +84,7 @@ public class Login extends AppCompatActivity {
                         if (passwordFromDB.equals(password)) {
                             UserData.phoneNumber = snapshot.child(phoneNumber).child("phoneNumber").getValue(String.class);
                             UserData.password = snapshot.child(phoneNumber).child("password").getValue(String.class);
+                            Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
                             startActivity(new Intent(Login.this, DoctorMainActivity.class));
                             finish();
                         } else {

@@ -3,7 +3,6 @@ package com.example.pathology;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -23,12 +22,13 @@ public class DoctorMainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_main);
-        Toolbar toolbar = findViewById(R.id.doctor_tool_bar);
+        Toolbar toolbar = findViewById(R.id.tool_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         drawerLayout = findViewById(R.id.doctor_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorMainActivity.this, drawerLayout, R.string.drawer_open, R.string.drawer_close);
+        actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorMainActivity.this, drawerLayout, toolbar
+                , R.string.drawer_open, R.string.drawer_close);
         drawerLayout.addDrawerListener(actionBarDrawerToggle);
         actionBarDrawerToggle.syncState();
         navigationView = findViewById(R.id.doctor_navigation_view);
