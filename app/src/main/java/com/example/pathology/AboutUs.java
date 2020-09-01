@@ -19,21 +19,18 @@ public class AboutUs extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Element adsElement = new Element();
-        adsElement.setTitle("Advertise Here:");
-
         View aboutUsPage = new AboutPage(this)
                 .isRTL(false)
                 .setImage(R.drawable.logo)
-                .setDescription("This is a demo text")
-                .addItem(new Element().setTitle("Version 1.0"))
-                .addItem(adsElement)
+                .setDescription("It was later started in 1998 with a great vision to provide a Health Care facilities in charitable rate." +
+                        " We are a good quality and experience doctor, Technicians on our panel." +
+                        " Going beyond the contemporary patient centred care, our ideology lies in taking special care of our patients at all times," +
+                        " ensuring the best services.\n\nOur Services:\n" +
+                        "| Pathology | \tDigital X-Ray | \tSonography | \tECG | \n| Audiometry | \tOptometry | \t" +
+                        "Industrial Medical | \n | Corporate Medical | \tAbroad Pre Medical |")
                 .addGroup("Connect with us")
-                .addEmail("admin@info.com")
-                .addWebsite("Website.url")
-                .addFacebook("facebook.com")
-                .addTwitter("twitter.com")
-                .addInstagram("instagram.com")
+                .addEmail("perfectlab33@gmail.com")
+                .addWebsite("https://perfectdiagnostic.co.in/")
                 .addItem(createCopyRightContent())
                 .create();
 
