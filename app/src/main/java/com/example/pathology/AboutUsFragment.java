@@ -2,10 +2,13 @@ package com.example.pathology;
 
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
 
@@ -13,13 +16,11 @@ import mehdi.sakout.aboutpage.AboutPage;
 import mehdi.sakout.aboutpage.Element;
 
 
-public class AboutUs extends AppCompatActivity {
+public class AboutUsFragment extends Fragment {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
 
-        View aboutUsPage = new AboutPage(this)
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = new AboutPage(getActivity())
                 .isRTL(false)
                 .setImage(R.drawable.logo)
                 .setDescription("It was later started in 1998 with a great vision to provide a Health Care facilities in charitable rate." +
@@ -33,8 +34,7 @@ public class AboutUs extends AppCompatActivity {
                 .addWebsite("https://perfectdiagnostic.co.in/")
                 .addItem(createCopyRightContent())
                 .create();
-
-        setContentView(aboutUsPage);
+        return view;
     }
 
     private Element createCopyRightContent() {
@@ -46,7 +46,7 @@ public class AboutUs extends AppCompatActivity {
         copyrightElement.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(AboutUs.this, copyrightString, Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity(), copyrightString, Toast.LENGTH_LONG).show();
             }
         });
         return copyrightElement;

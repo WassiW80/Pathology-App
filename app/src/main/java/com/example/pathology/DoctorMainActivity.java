@@ -1,64 +1,43 @@
 package com.example.pathology;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.AppBarConfiguration;
+import androidx.navigation.ui.NavigationUI;
 
 import com.google.android.material.navigation.NavigationView;
 
 public class DoctorMainActivity extends AppCompatActivity {
 
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
-    private NavigationView navigationView;
+    private AppBarConfiguration mAppBarConfiguration;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_doctor_main);
-        Toolbar toolbar = findViewById(R.id.tool_bar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        drawerLayout = findViewById(R.id.doctor_drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(DoctorMainActivity.this, drawerLayout, toolbar
-                , R.string.drawer_open, R.string.drawer_close);
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
-        actionBarDrawerToggle.syncState();
-        navigationView = findViewById(R.id.doctor_navigation_view);
-        navigationView.inflateHeaderView(R.layout.navigation_header);
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                UserMenuSelected(menuItem);
-                return false;
-            }
-        });
+        DrawerLayout drawer = findViewById(R.id.drawer_layout_doctor);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        mAppBarConfiguration = new AppBarConfiguration.Builder(
+                R.id.nav_view_report, R.id.nav_reset_password, R.id.nav_about_us, R.id.nav_logout)
+                .setDrawerLayout(drawer)
+                .build();
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+        NavigationUI.setupWithNavController(navigationView, navController);
     }
 
-    private void UserMenuSelected(MenuItem menuItem) {
-        switch (menuItem.getItemId()) {
-            case R.id.doctor_nav_reports:
-                break;
 
-            case R.id.doctor_nav_settings:
-                startActivity(new Intent(DoctorMainActivity.this, UserProfile.class));
-                break;
-
-            case R.id.doctor_nav_contact:
-                startActivity(new Intent(DoctorMainActivity.this, AboutUs.class));
-                break;
-
-            case R.id.doctor_nav_logout:
-                startActivity(new Intent(DoctorMainActivity.this, Login.class));
-                finish();
-                break;
-        }
+    @Override
+    public boolean onSupportNavigateUp() {
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
+        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
+                || super.onSupportNavigateUp();
     }
 }

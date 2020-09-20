@@ -1,12 +1,16 @@
 package com.example.pathology;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationManagerCompat;
+import androidx.fragment.app.Fragment;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -22,43 +26,44 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SendGreetingActivity extends AppCompatActivity {
+public class GreetingFragment extends Fragment {
 
     private String URL = "https://fcm.googleapis.com/fcm/send";
 
     private NotificationManagerCompat notificationManager;
     private EditText editTextTitle;
     private EditText editTextMessage;
+    private Button sendGreetingMessage;
     private RequestQueue requestQueue;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_send_greeting);
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_greeting, container, false);
+        notificationManager = NotificationManagerCompat.from(getActivity());
+        editTextTitle = view.findViewById(R.id.edit_text_title);
+        editTextMessage = view.findViewById(R.id.edit_text_message);
+        sendGreetingMessage = view.findViewById(R.id.btn_send_greeting);
 
-        notificationManager = NotificationManagerCompat.from(this);
-        editTextTitle = findViewById(R.id.edit_text_title);
-        editTextMessage = findViewById(R.id.edit_text_message);
-
-        requestQueue = Volley.newRequestQueue(this);
+        requestQueue = Volley.newRequestQueue(getActivity());
         FirebaseMessaging.getInstance().subscribeToTopic("news");
-
-    }
-
-    public void sendMessage(View view) {
-        if (validateField())
-        sendNotification();
+        sendGreetingMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (validateField())
+                    sendNotification();
+            }
+        });
+        return view;
     }
 
     private boolean validateField() {
         String title = editTextTitle.getText().toString();
         String message = editTextMessage.getText().toString();
         if (title.isEmpty()) {
-            Toast.makeText(this, "Please enter title", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter title", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (message.isEmpty()) {
-            Toast.makeText(this, "Please enter message", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), "Please enter message", Toast.LENGTH_SHORT).show();
             return false;
         }
         return true;
@@ -94,7 +99,7 @@ public class SendGreetingActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        Toast.makeText(SendGreetingActivity.this, "Greeting Send", Toast.LENGTH_LONG).show();
+        Toast.makeText(getActivity(), "Greeting Send", Toast.LENGTH_LONG).show();
         clearField();
     }
 

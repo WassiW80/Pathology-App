@@ -34,7 +34,7 @@ public class Login extends AppCompatActivity {
     private void initializeComponent() {
         etPhoneNumber = findViewById(R.id.loginUsernameField);
         etPassword = findViewById(R.id.loginPasswordField);
-        login = findViewById(R.id.loginButton);
+        login = findViewById(R.id.logoutButton);
         adminPhoneNumber = "8108052992";
         adminPassword = "admin123";
     }
