@@ -4,18 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.database.DataSnapshot;
@@ -30,16 +28,17 @@ import java.util.List;
 public class ViewFragment extends Fragment {
 
     ListView myPDFFileView;
-    EditText searchFile;
+    SearchView searchFile;
     DatabaseReference databaseReference;
 
     List<Uploads> uploadPDFFile;
+    ArrayAdapter<String> adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_view_report, container, false);
 
         myPDFFileView = (ListView) view.findViewById(R.id.listView);
-        searchFile= view.findViewById(R.id.search_filter);
+        searchFile = (SearchView) view.findViewById(R.id.search_filter);
 
         uploadPDFFile = new ArrayList();
 
@@ -56,6 +55,19 @@ public class ViewFragment extends Fragment {
             }
         });
 
+        searchFile.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                ViewFragment.this.adapter.getFilter().filter(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                ViewFragment.this.adapter.getFilter().filter(newText);
+                return false;
+            }
+        });
         return view;
     }
 
@@ -77,7 +89,7 @@ public class ViewFragment extends Fragment {
 
                 }
 
-                ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, uploads) {
+                adapter = new ArrayAdapter<String>(getActivity().getApplicationContext(), android.R.layout.simple_list_item_1, uploads) {
                     @Override
                     public View getView(int position, View convertView, ViewGroup parent) {
                         View view = super.getView(position, convertView, parent);
