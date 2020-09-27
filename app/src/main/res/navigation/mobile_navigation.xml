@@ -7,36 +7,40 @@
 
     <fragment
         android:id="@+id/nav_view_report"
-        android:name="com.example.pathology.ViewFragment"
+        android:name="com.example.pathology.fragments.ViewFragment"
         android:label="@string/menu_view_report"
         tools:layout="@layout/fragment_view_report" />
 
     <fragment
         android:id="@+id/nav_upload_report"
-        android:name="com.example.pathology.UploadFragment"
+        android:name="com.example.pathology.fragments.UploadFragment"
         android:label="@string/menu_upload_report"
         tools:layout="@layout/fragment_upload_report" />
 
     <fragment
         android:id="@+id/nav_add_doctor"
-        android:name="com.example.pathology.AddDoctorFragment"
+        android:name="com.example.pathology.fragments.AddDoctorFragment"
         android:label="@string/menu_add_doctor"
         tools:layout="@layout/fragment_add_doctor" />
 
     <fragment
         android:id="@+id/nav_greeting"
-        android:name="com.example.pathology.GreetingFragment"
+        android:name="com.example.pathology.fragments.GreetingFragment"
         android:label="@string/menu_send_greeting"
         tools:layout="@layout/fragment_greeting" />
-
+    <fragment
+        android:id="@+id/nav_reset_password"
+        android:name="com.example.pathology.fragments.ResetPasswordFragment"
+        android:label="@string/menu_settings"
+        tools:layout="@layout/fragment_reset_password" />
     <fragment
         android:id="@+id/nav_about_us"
-        android:name="com.example.pathology.AboutUsFragment"
+        android:name="com.example.pathology.fragments.AboutUsFragment"
         android:label="@string/menu_contact_us"
         tools:layout="@layout/fragment_about_us" />
     <fragment
         android:id="@+id/nav_logout"
-        android:name="com.example.pathology.LogoutFragment"
+        android:name="com.example.pathology.fragments.LogoutFragment"
         android:label="@string/menu_logout"
         tools:layout="@layout/fragment_logout" />
 

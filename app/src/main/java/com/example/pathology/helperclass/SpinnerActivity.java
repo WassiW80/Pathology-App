@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.helperclass;
 
 import android.app.Activity;
 import android.view.View;

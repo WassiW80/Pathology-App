@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.pathology.helperclass.UserData;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -68,8 +69,6 @@ public class Login extends AppCompatActivity {
         final String phoneNumber = etPhoneNumber.getText().toString().trim();
         final String password = etPassword.getText().toString().trim();
         if (phoneNumber.equals(adminPhoneNumber) && password.equals(adminPassword)) {
-            UserData.phoneNumber = adminPhoneNumber;
-            UserData.password = adminPassword;
             Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
             startActivity(new Intent(Login.this, MainActivity.class));
             finish();

@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -12,6 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.pathology.R;
+import com.example.pathology.helperclass.UserData;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -64,14 +66,6 @@ public class ResetPasswordFragment extends Fragment {
         return true;
     }
 
-  /*  public void updatePassword(View view) {
-        if (validateField())
-            if (isPasswordChanged()) {
-                Toast.makeText(getActivity(), "Password Changed Successfully...", Toast.LENGTH_LONG).show();
-                clearField();
-            }
-    }
-*/
     private boolean isPasswordChanged() {
         String newPassword = etNewPassword.getText().toString();
         if (!UserData.password.equals(newPassword)) {

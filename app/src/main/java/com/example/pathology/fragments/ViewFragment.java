@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.fragments;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -16,6 +16,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import com.example.pathology.R;
+import com.example.pathology.helperclass.Uploads;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,6 +25,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class ViewFragment extends Fragment {
@@ -41,6 +44,7 @@ public class ViewFragment extends Fragment {
         searchFile = (SearchView) view.findViewById(R.id.search_filter);
 
         uploadPDFFile = new ArrayList();
+        Collections.reverse(uploadPDFFile);
 
         viewAllFiles();
 
@@ -78,7 +82,7 @@ public class ViewFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot snapshots : snapshot.getChildren()) {
                     Uploads pdfFile = snapshots.getValue(Uploads.class);
-                    uploadPDFFile.add(pdfFile);
+                    uploadPDFFile.add(0, pdfFile);
 
                 }
 

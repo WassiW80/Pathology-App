@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.fragments;
 
 import android.os.Bundle;
 import android.view.Gravity;
@@ -9,6 +9,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+
+import com.example.pathology.R;
 
 import java.util.Calendar;
 

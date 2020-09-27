@@ -5,16 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ViewFragment">
-
-    <!--<EditText
-        android:id="@+id/search_filter"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="20dp"
-        android:hint="Search report"
-        android:layout_margin="15dp"
-        android:padding="5dp" />-->
+    tools:context=".fragments.ViewFragment">
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/search_filter"
@@ -28,7 +19,7 @@
         android:id="@+id/listView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-       android:layout_margin="2dp"
+        android:layout_margin="2dp"
         android:padding="5dp" />
 
 </LinearLayout>

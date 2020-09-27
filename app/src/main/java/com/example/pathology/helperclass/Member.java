@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.helperclass;
 
 public class Member {
     private String name;

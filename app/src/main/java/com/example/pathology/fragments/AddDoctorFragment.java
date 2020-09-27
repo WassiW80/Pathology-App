@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,6 +13,9 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.pathology.R;
+import com.example.pathology.helperclass.Member;
+import com.example.pathology.helperclass.SpinnerActivity;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -103,23 +106,6 @@ public class AddDoctorFragment extends Fragment {
         }
         return true;
     }
-/*
-
-    public void validation(View view) {
-        if (validateField()) {
-            String name = etUsername.getText().toString().trim();
-            String phoneNumber = etPhoneNumber.getText().toString().trim();
-            String password="doctor123";
-            etPassword.setText(password);
-            String organization = etOrganization.getText().toString().trim();
-            String branch = spinner.getSelectedItem().toString().trim();
-            member = new Member(name, password, organization, phoneNumber, branch);
-            reference.child(phoneNumber).setValue(member);
-            Toast.makeText(getActivity(), "Registered Successfully...", Toast.LENGTH_LONG).show();
-            clearField();
-        }
-    }
-*/
 
     private void clearField() {
         etUsername.getText().clear();

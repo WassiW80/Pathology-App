@@ -1,4 +1,4 @@
-package com.example.pathology;
+package com.example.pathology.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import com.example.pathology.Login;
+import com.example.pathology.R;
 
 public class LogoutFragment extends Fragment {
 

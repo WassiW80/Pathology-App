@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         NavigationView navigationView = findViewById(R.id.nav_view);
         mAppBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.nav_view_report, R.id.nav_upload_report, R.id.nav_add_doctor, R.id.nav_greeting
-                , R.id.nav_about_us, R.id.nav_logout)
+                , R.id.nav_about_us,R.id.nav_reset_password, R.id.nav_logout)
                 .setDrawerLayout(drawer)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
